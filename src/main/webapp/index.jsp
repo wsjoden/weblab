@@ -11,10 +11,12 @@
         button {
             font-size: 16px;
         }
+
         .toCart {
             padding: 10px 20px;
         }
-        .add{
+
+        .add {
             padding: 5px 5px;
         }
     </style>
@@ -30,15 +32,18 @@
 <%
     Collection<ItemInfo> items = ItemHandler.getItems();
     Iterator<ItemInfo> it = items.iterator();
-    for(;it.hasNext();) {
+    for (; it.hasNext(); ) {
         ItemInfo item = it.next();
 %>
 <p>
-    <%= item.getName()%> :
-    <%= item.getDescription()%>
-    <button class="add" onclick="window.location.href='cart.jsp'">Add</button>
-    <br>
-    <%}%>
+        <%= item.getName()%> :
+        <%= item.getDescription()%>
+<form action="add" method="post">
+    <input type="hidden" name="itemId" value="<%= item.getId() %>"/>
+    <input type="submit" value="add"/>
+</form>
+<br>
+<%}%>
 
 </p>
 </body>

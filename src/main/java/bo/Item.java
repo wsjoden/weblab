@@ -26,4 +26,5 @@ public class Item {
         return description;
     }
     public int getId(){return id;}
+    public static Item getItemById(int id){return ItemDB.getItemById(id);}
 }

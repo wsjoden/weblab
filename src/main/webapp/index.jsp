@@ -2,6 +2,7 @@
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.Collection" %>
 <%@ page import="bo.ItemHandler" %>
+<%@ page import="bo.Item" %>
 <html>
 <head>
     <title>
@@ -38,13 +39,12 @@
 <p>
         <%= item.getName()%> :
         <%= item.getDescription()%>
-<form action="add" method="post">
-    <input type="hidden" name="itemId" value="<%= item.getId() %>"/>
-    <input type="submit" value="add"/>
-</form>
+    <form action="add" method="post">
+        <input type="hidden" name="itemId" value="<%= item.getId() %>"/>
+        <input type="submit" value="add"/>
+    </form>
 <br>
 <%}%>
-
 </p>
 </body>
 </html>

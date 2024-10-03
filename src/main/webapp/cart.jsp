@@ -3,6 +3,7 @@
 <%@ page import="bo.ItemHandler" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="bo.AddToCartServlet" %>
+<%@ page import="java.util.ArrayList" %>
 <html>
 <head>
     <title>cart</title>
@@ -16,17 +17,15 @@
 <body>
 <h2>this is the cart</h2>
 <button onclick="window.location.href='index.jsp'">main page</button>
-<% Collection<ItemInfo> cart = (Collection<ItemInfo>) session.getAttribute("cart");%>
+<% ArrayList<ItemInfo> cart = (ArrayList<ItemInfo>) session.getAttribute("cart");%>
 <% if (cart != null) { %>
 <p> Your cart: </p>
 <ul>
     <%
-        Iterator<ItemInfo> it = cart.iterator();
-        for (; it.hasNext(); ) {
-            ItemInfo item = it.next();
+        for (int i = 0; i < cart.size();i++) {
     %>
-    <%=item.getName()%> :
-    <%=item.getDescription()%>
+    <%=cart.get(i).getName()%> :
+    <%=cart.get(i).getDescription()%>
     <br>
     <% } %>
 </ul>

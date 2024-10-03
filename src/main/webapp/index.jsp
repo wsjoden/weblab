@@ -44,7 +44,6 @@
 <p>
         <%= item.getName()%> :
         <%= item.getDescription()%>
-
     <form action="addToCart" method="post">
         <input type="hidden" name="itemId" value="<%= item.getId() %>"/>
         <input type="hidden" name="action" value="addToCart">

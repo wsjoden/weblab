@@ -14,7 +14,10 @@ public class UserDB extends User {
             ps.setString(2,password);
 
             ResultSet rs = ps.executeQuery();
-            return true;
+            int grej = rs.getFetchSize();
+
+
+            return rs.next();
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -6,7 +6,7 @@
 <html>
 <head>
     <title>
-        main page
+        Main Page
     </title>
     <style>
         button {
@@ -23,7 +23,7 @@
             color: white;
             background-color: indianred;
         }
-        .loggin {
+        .login {
             position: absolute;
             top: 50px;
             right: 10px;
@@ -44,6 +44,8 @@
 <p>
         <%= item.getName()%> :
         <%= item.getDescription()%>
+              |Stock:
+        <%= item.getStock()%>
     <form action="addToCart" method="post">
         <input type="hidden" name="itemId" value="<%= item.getId() %>"/>
         <input type="hidden" name="action" value="addToCart">
@@ -52,9 +54,9 @@
 <%}%>
 </p>
 
-<form action="login" method="post" class="loggin">
-    Username: <input type="text" name="username"><br>
-    Password: <input type="text" name="password"><br>
+<form action="login" method="get" class="login">
+    <input type="submit" value="login">
+
 </form>
 
 <form action="clearSession" method="post" class="clearSession">

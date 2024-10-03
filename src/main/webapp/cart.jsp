@@ -6,16 +6,21 @@
 <%@ page import="java.util.ArrayList" %>
 <html>
 <head>
-    <title>cart</title>
+    <title>Cart Page</title>
     <style>
         button {
             padding: 10px 20px;
             font-size: 16px;
         }
+        .user{
+            position: absolute;
+            top: 50px;
+            right: 10px;
+        }
     </style>
 </head>
 <body>
-<h2>this is the cart</h2>
+<h2>Cart</h2>
 <button onclick="window.location.href='index.jsp'">main page</button>
 <% ArrayList<ItemInfo> cart = (ArrayList<ItemInfo>) session.getAttribute("cart");%>
 <% if (cart != null) { %>
@@ -32,5 +37,12 @@
 <% } else { %>
 <p> Your cart is empty. Try adding stuff to it =) </p>
 <% } %>
+
+<form action="checkOut" method="post">
+    <input type="hidden" name="cart" value="cart"/>
+    <input type="hidden" name="action" value="addToCart">
+    <input type="submit" value="checkOut"/>
+</form>
+
 </body>
 </html>

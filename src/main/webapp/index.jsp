@@ -12,39 +12,56 @@
         button {
             font-size: 16px;
         }
-
         .toCart {
             padding: 10px 20px;
         }
-
-        .add {
+        .clearSession {
             padding: 5px 5px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            background-color: indianred;
+        }
+        .loggin {
+            position: absolute;
+            top: 50px;
+            right: 10px;
         }
     </style>
 </head>
 <body>
-<h2>Hello World!</h2>
+<h2>Item Page</h2>
+
 <button class="toCart" onclick="window.location.href='cart.jsp'">Go to Cart</button>
-
-<form action="add">
-
-</form>
 
 <%
     Collection<ItemInfo> items = ItemHandler.getItems();
     Iterator<ItemInfo> it = items.iterator();
-    for (; it.hasNext(); ) {
+    while (it.hasNext()) {
         ItemInfo item = it.next();
 %>
 <p>
         <%= item.getName()%> :
         <%= item.getDescription()%>
-    <form action="add" method="post">
+
+    <form action="addToCart" method="post">
         <input type="hidden" name="itemId" value="<%= item.getId() %>"/>
+        <input type="hidden" name="action" value="addToCart">
         <input type="submit" value="add"/>
     </form>
-<br>
 <%}%>
 </p>
+
+<form action="login" method="post" class="loggin">
+    Username: <input type="text" name="username"><br>
+    Password: <input type="text" name="password"><br>
+</form>
+
+<form action="clearSession" method="post" class="clearSession">
+        <input type="hidden" name="action" value="clearSession" >
+        <input type="submit" value="Clear Session"/>
+</form>
+
 </body>
 </html>

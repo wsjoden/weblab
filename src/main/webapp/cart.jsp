@@ -2,6 +2,7 @@
 <%@ page import="ui.ItemInfo" %>
 <%@ page import="bo.ItemHandler" %>
 <%@ page import="java.util.Iterator" %>
+<%@ page import="bo.AddToCartServlet" %>
 <html>
 <head>
     <title>cart</title>
@@ -15,8 +16,8 @@
 <body>
 <h2>this is the cart</h2>
 <button onclick="window.location.href='index.jsp'">main page</button>
-<% Collection<ItemInfo> cart = (Collection<ItemInfo>) ItemHandler.getCart();%>
-<% if (!cart.isEmpty()) { %>
+<% Collection<ItemInfo> cart = (Collection<ItemInfo>) session.getAttribute("cart");%>
+<% if (cart != null) { %>
 <p> Your cart: </p>
 <ul>
     <%

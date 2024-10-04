@@ -21,4 +21,14 @@ public class ItemHandler {
         }
         return items;
     }
+
+    public static Collection<ItemInfo> getItemsByIds(ArrayList<Integer> ids) {
+        Collection c = Item.getItemsByIds(ids);
+        ArrayList<ItemInfo> items = new ArrayList<ItemInfo>();
+        for (Iterator it = c.iterator(); it.hasNext();) {
+            Item item = (Item) it.next();
+            items.add(new ItemInfo(item.getName(),item.getDescription(),item.getId()));
+        }
+        return items;
+    }
 }

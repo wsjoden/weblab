@@ -17,15 +17,16 @@
 <body>
 <h2>this is the cart</h2>
 <button onclick="window.location.href='index.jsp'">main page</button>
-<% ArrayList<ItemInfo> cart = (ArrayList<ItemInfo>) session.getAttribute("cart");%>
+<%  ArrayList<Integer> cartIds = (ArrayList<Integer>) session.getAttribute("cart");
+    ArrayList<ItemInfo> cart = (ArrayList<ItemInfo>) ItemHandler.getItemsByIds(cartIds);
+%>
 <% if (cart != null) { %>
 <p> Your cart: </p>
 <ul>
     <%
         for (int i = 0; i < cart.size();i++) {
     %>
-    <%=cart.get(i).getName()%> :
-    <%=cart.get(i).getDescription()%>
+    <%=cart.get(i).toString()%>
     <br>
     <% } %>
 </ul>

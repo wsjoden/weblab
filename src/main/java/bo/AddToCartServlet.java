@@ -15,7 +15,7 @@ import java.util.Collection;
 public class AddToCartServlet extends HttpServlet {
     private static Collection<ItemInfo> cart = new ArrayList<>();
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession session = req.getSession();
 
@@ -26,12 +26,34 @@ public class AddToCartServlet extends HttpServlet {
         }
 
         int id = Integer.parseInt(req.getParameter("itemId"));
-        System.out.println("added to cart: " + id);
+        //System.out.println("added to cart: " + id);
 
         Item item = Item.getItemById(id);
         if (item != null) {
             cart.add(new ItemInfo(item.getName(), item.getDescription(), item.getId()));
         }
+
+        try {
+            resp.sendRedirect("index.jsp");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }*/
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+        HttpSession session = req.getSession();
+
+        Collection<Integer> cart = (Collection<Integer>) session.getAttribute("cart");
+        if (cart == null) {
+            cart = new ArrayList<Integer>();
+            session.setAttribute("cart", cart); // Create cart if it doesn't exist
+        }
+
+        int id = Integer.parseInt(req.getParameter("itemId"));
+        //System.out.println("added to cart: " + id);
+
+        cart.add(id);
 
         try {
             resp.sendRedirect("index.jsp");

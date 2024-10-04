@@ -3,6 +3,7 @@
 <%@ page import="java.util.Collection" %>
 <%@ page import="bo.ItemHandler" %>
 <%@ page import="bo.Item" %>
+<%@ page import="java.util.ArrayList" %>
 <html>
 <head>
     <title>
@@ -42,8 +43,7 @@
         ItemInfo item = it.next();
 %>
 <p>
-        <%= item.getName()%> :
-        <%= item.getDescription()%>
+        <%= item.toString()%>
     <form action="addToCart" method="post">
         <input type="hidden" name="itemId" value="<%= item.getId() %>"/>
         <input type="hidden" name="action" value="addToCart">

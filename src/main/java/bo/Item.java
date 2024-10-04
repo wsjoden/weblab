@@ -2,6 +2,7 @@ package bo;
 
 import db.ItemDB;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class Item {
@@ -11,6 +12,10 @@ public class Item {
 
     static public Collection getItems() {
         return ItemDB.getItems();
+    }
+
+    static public Collection getItemsByIds(ArrayList<Integer> ids) {
+        return ItemDB.getItemsByIds(ids);
     }
 
     protected Item(String name, String description, int id) {

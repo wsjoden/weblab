@@ -11,6 +11,11 @@ public class ItemInfo {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return name + " : " + description;
+    }
+
     public String getName(){
         return name;
     }

@@ -7,7 +7,7 @@
 <html>
 <head>
     <title>
-        main page
+        Main Page
     </title>
     <style>
         button {
@@ -24,7 +24,7 @@
             color: white;
             background-color: indianred;
         }
-        .loggin {
+        .login {
             position: absolute;
             top: 50px;
             right: 10px;
@@ -52,9 +52,9 @@
 <%}%>
 </p>
 
-<form action="login" method="post" class="loggin">
-    Username: <input type="text" name="username"><br>
-    Password: <input type="text" name="password"><br>
+<form action="login" method="get" class="login">
+    <input type="submit" value="login">
+
 </form>
 
 <form action="clearSession" method="post" class="clearSession">

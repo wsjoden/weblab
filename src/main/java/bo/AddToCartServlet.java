@@ -30,7 +30,7 @@ public class AddToCartServlet extends HttpServlet {
 
         Item item = Item.getItemById(id);
         if (item != null) {
-            cart.add(new ItemInfo(item.getName(), item.getDescription(), item.getId()));
+            cart.add(new ItemInfo(item.getName(), item.getDescription(), item.getId(), item.getStock()));
         }
 
         try {

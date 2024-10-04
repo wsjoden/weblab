@@ -22,8 +22,8 @@ public class ItemDB extends Item {
                 int i = rs.getInt("id");
                 String name = rs.getString("name");
                 String desc = rs.getString("description");
-
-                v.addElement(new ItemDB(name, desc, i));
+                int stock = rs.getInt("stock");
+                v.addElement(new ItemDB(name, desc, i, stock));
 
             }
         } catch (SQLException e) {
@@ -77,8 +77,9 @@ public class ItemDB extends Item {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                item = new ItemDB(rs.getString("name"), rs.getString("description"), rs.getInt("id"));
+                item = new ItemDB(rs.getString("name"), rs.getString("description"), rs.getInt("id"),rs.getInt("stock"));
                 int i = rs.getInt("id");
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -86,7 +87,7 @@ public class ItemDB extends Item {
         return item;
     }
 
-    private ItemDB(String name, String description, int id) {
-        super(name, description, id);
+    private ItemDB(String name, String description, int id,int stock) {
+        super(name, description, id, stock);
     }
 }

@@ -15,7 +15,7 @@ public class ItemInfo {
 
     @Override
     public String toString() {
-        return name + " : " + description + "| Stock: " + stock;
+        return name + " : " + description + " | Stock: " + stock;
     }
 
     public String getName(){

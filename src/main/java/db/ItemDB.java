@@ -55,8 +55,9 @@ public class ItemDB extends Item {
                         int id = rs.getInt("id");
                         String name = rs.getString("name");
                         String desc = rs.getString("description");
+                        int stock = rs.getInt("stock");
 
-                        v.addElement(new ItemDB(name, desc, id));
+                        v.addElement(new ItemDB(name, desc, id,stock));
                     }
                 }
             }
